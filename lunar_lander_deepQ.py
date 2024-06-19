@@ -1,34 +1,44 @@
-import gym
-from gym.envs import box2d
-import numpy as np
-from collections import deque
-import random
-# from tensorflow.keras.models import Sequential
-# from tensorflow.keras.la/yers import Dense
-# from tensorflow.keras.optimizers import Adam
+# import gym
+# from gym.envs import box2d
+# import numpy as np
+# # from collections import deque
+# import random
+# # from tensorflow.keras.models import Sequential
+# # from tensorflow.keras.la/yers import Dense
+# # from tensorflow.keras.optimizers import Adam
 
 
 
-# Set up the environment
-env = gym.make("LunarLander-v2", render_mode= "human")
+# # Set up the environment
+# env = gym.make("LunarLander-v2", render_mode= "human")
 
-episodes = 10
-for episode in range(1, episodes+1):
-  state = env.reset()
-  done = False 
-  score = 0
+# episodes = 10
+# for episode in range(1, episodes+1):
+#   state = env.reset()
+#   done = False 
+#   score = 0
 
-  while not done:
-    action = random.choice([0, 1, 2])
-    _, reward, done, _ = env.step(action)
-    score += reward
+#   while not done:
+#     action = random.choice([0, 1, 2])
+#     _, reward, done, _ = env.step(action)
+#     score += reward
 
-  print(f"episode: {episode} , score: {score}")
+#   print(f"episode: {episode} , score: {score}")
+
+# env.close()
+
+
+
+
+import gymnasium as gym
+env = gym.make("LunarLander-v2", render_mode="human")
+observation, info = env.reset(seed=42)
+for _ in range(1000):
+   action = env.action_space.sample()  # this is where you would insert your policy
+   observation, reward, terminated, truncated, info = env.step(action)
+
+   if terminated or truncated:
+      observation, info = env.reset()
 
 env.close()
-
-
-
-
-
 
