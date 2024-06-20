@@ -126,7 +126,7 @@ env.close()
 
 - Sadegh Khedery
 
-##Acnolegment
+## Acknowledgment
 
 This project is based on the tutorial by Nicholas Renotte on training a Lunar Lander agent. You can find the tutorial here https://www.youtube.com/watch?v=nRHjymV2PX8&t=551s .
 ## License
