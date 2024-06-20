@@ -1,4 +1,4 @@
-# Lunar Lander using Proximal Policy Optimization (PPO)
+# Lunar Lander Using Proximal Policy Optimization (PPO)
 
 This repository contains code for training and evaluating a Lunar Lander agent using the Proximal Policy Optimization (PPO) algorithm.
 
@@ -14,7 +14,7 @@ This repository contains code for training and evaluating a Lunar Lander agent u
 1. Clone this repository:
    ```bash
    git clone https://github.com/yourusername/LunarLander-PPO.git
-   cd Lunar-Lander-DeepQ-Learning
+   cd Lunar-Lander-Using-PPO
    ```
 
 2. Install the required libraries:
