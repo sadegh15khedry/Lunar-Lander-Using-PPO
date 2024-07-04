@@ -22,18 +22,32 @@ def run_random_algorithm(env, episodes):
       print(f"Episode: {episode}  Score: {score}")
     env.close()
     
+
     
     
-    
-def run_PPO_algorithm(env, total_timesteps, load=False):
+def run_PPO_algorithm(env, total_timesteps, load=False, log_interval=10, tensorboard_log="./ppo_lunarlander_tensorboard/"):
     #setting up the model
-   model = PPO("MlpPolicy", env, verbose = 1)
+   model = PPO("MlpPolicy", env,  verbose=1)
+   # model.set_parameters({
+   #  'learning_rate': 1e-4,
+   #  'n_steps': 4096,
+   #  'batch_size': 64,
+   #  'n_epochs': 10,
+   #  'gamma': 0.99,
+   #  'gae_lambda': 0.95,
+   #  'clip_range': 0.2,
+   #  'ent_coef': 0.01
+   # })
    
+   # Loading the model if necessary
    if load == True:
       model = sb3.PPO.load("ppo_model.zip")
+      
+   # Optionally, update hyperparameters if needed
+   
 
    #training the model
-   model.learn(total_timesteps=total_timesteps)
+   model.learn(total_timesteps=total_timesteps, log_interval=log_interval)
 
    #evalutating our model
    evaluate_policy(model, env,  n_eval_episodes=10, render=True)
