@@ -17,9 +17,9 @@ This repository contains code for training and evaluating a Lunar Lander agent u
    cd Lunar-Lander-Using-PPO
    ```
 
-2. Install the required libraries:
+2. Install the required libraries using the environment.yml file using conda :
    ```bash
-   pip install tensorflow stable-baselines3 gymnasium
+   conda env create -f environment.yml
    ```
 
 ## Code Description
